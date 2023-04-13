@@ -14,12 +14,27 @@ function App() {
 
   ];
 
-  
+  const [resourceType, setResourceType]= useState('user')
+  const [Basket, setBasket] = useState([])
+
+  const addItems = (item)=>{
+    setBasket((prevBasket) =>[...prevBasket, item])
+  }
 
   return (
     <>
+   
     <ProductList products={products}/>
     <BasketContainer/>
+
+     {/* <div>
+    <Button onClick={()=> setResourceType('Posts')}>Posts</Button>
+    <Button onClick={()=> setResourceType('users')}>Users</Button>
+    <Button onClick={()=> setResourceType('comments')}>Comments</Button>
+    <h3>{resourceType} </h3>
+    </div> */}
+    
+   
     </>
       
   )
