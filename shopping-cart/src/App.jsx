@@ -14,7 +14,8 @@ function App() {
 
   ];
 
-  const [resourceType, setResourceType]= useState('user')
+  // const [resourceType, setResourceType]= useState('user')
+
   const [Basket, setBasket] = useState([])
 
   const addItems = (item)=>{
@@ -24,7 +25,7 @@ function App() {
   return (
     <>
    
-    <ProductList products={products}/>
+    <ProductList products={products} addToBasket={(item)=> addItems(item)} />
     <BasketContainer/>
 
      {/* <div>
