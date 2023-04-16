@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function BasketContainer({basket}) {
+export default function BasketContainer({basket, clearItems, removeItem}) {
   return (
     <div>
       <h1>Cart</h1>
@@ -8,10 +8,12 @@ export default function BasketContainer({basket}) {
         basket.map((item) => (
           <div key={item.id}>
             <p>{item.name}</p>
-            <p>{item.price }</p>
+            <p>{item.price}</p>
+            <button onClick={()=> removeItem(item.id)}>Remove Item</button>
           </div>
         ))
       }
+      <button onClick={()=> clearItems()}>Clear All</button>
     </div>
   )
 }

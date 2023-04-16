@@ -20,9 +20,19 @@ function App() {
     setBasket((prevBasket) => [...prevBasket, item]);
   };
 
+  const clearItems = () => { 
+    setBasket([])
+  }
+
+  const removeItem = (id) => { 
+    setBasket((prevBasket) => prevBasket.filter((item) => item.id !== id))
+  }
+
+
+
   return (
     <>
-      <BasketContainer basket={Basket} />
+      <BasketContainer basket={Basket} clearItems={clearItems} removeItem={removeItem} />
       <hr />
       <ProductList products={products} addToBasket={(item) => addItems(item)} />
 
