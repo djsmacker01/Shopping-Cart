@@ -1,20 +1,42 @@
-import React from 'react'
+import React from "react";
 
-export default function BasketContainer({basket, clearItems, removeItem}) {
+export default function BasketContainer({ basket, clearItems, removeItem }) {
   return (
-    <div>
-      <h1>Cart</h1>
-      {
-        basket.map((item) => (
-          <div key={item.id}>
-            <p>{item.name}</p>
-            <p>{item.price}</p>
-            <p></p>
-            <button onClick={()=> removeItem(item.id)}>Remove Item</button>
-          </div>
-        ))
-      }
-      <button onClick={()=> clearItems()}>Clear All</button>
-    </div>
-  )
+    <>
+      {basket && (
+        <table>
+          <thead>
+            <tr>
+              <th>Products</th>
+              <th>Qty</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {basket.map((item) => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.qty}</td>
+                <td>{item.price}</td>
+                <td>
+                  <button onClick={() => removeItem(item.id)}>
+                    remove item
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>
+                <button onClick={() => clearItems()}>Clear All</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      )}
+    </>
+  );
 }
