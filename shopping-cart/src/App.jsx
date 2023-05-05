@@ -16,8 +16,25 @@ function App() {
 
   const [Basket, setBasket] = useState([]);
 
-  const addItems = (item) => {
-    setBasket((prevBasket) => [...prevBasket, item]);
+  const addToBasket = (item) => {
+    // setBasket((prevBasket) => [...prevBasket, item]);
+    setBasket((prevBasket) => {
+      const itemIdex = prevBasket.findIndex((i) => i.id === item.id);
+
+      if (itemIdex !== -1) {
+        const newItem = [...prevBasket];
+        newItem[itemIdex] = {
+          ...newItem[itemIdex],
+          qty: newItem[itemIdex].qty + 1,
+        };
+        return newItem;
+      } else {
+        return [...prevBasket, { ...item, qty: 1 }];
+      }
+    });
+    // check if id already exists
+
+    // get the existing record that matches the id
   };
 
   const clearItems = () => { 
@@ -25,7 +42,20 @@ function App() {
   }
 
   const removeItem = (id) => { 
-    setBasket((prevBasket) => prevBasket.filter((item) => item.id !== id))
+    // setBasket((prevBasket) => prevBasket.filter((item) => item.id !== id))
+    setBasket((prevBasket) =>
+      prevBasket.reduce((acc, item) => {
+        if (item.id === id) {
+          if (item.qty > 1) {
+            acc.push({ ...item, qty: item.qty - 1 });
+          }
+        }
+        else {
+          acc.push(item)
+        }
+        return acc;
+      }, [])
+    );
   }
 
 
@@ -34,7 +64,7 @@ function App() {
     <>
       <BasketContainer basket={Basket} clearItems={clearItems} removeItem={removeItem} />
       <hr />
-      <ProductList products={products} addToBasket={(item) => addItems(item)} />
+      <ProductList products={products} addToBasket={(item) => addToBasket(item)} />
 
       {/* <div>
     <Button onClick={()=> setResourceType('Posts')}>Posts</Button>

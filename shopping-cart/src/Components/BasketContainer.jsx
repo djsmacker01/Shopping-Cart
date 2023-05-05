@@ -4,7 +4,7 @@ export default function BasketContainer({ basket, clearItems, removeItem }) {
   return (
     <>
       {basket && (
-        <table>
+        <table width={500}>
           <thead>
             <tr>
               <th>Products</th>
