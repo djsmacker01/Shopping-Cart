@@ -9,6 +9,7 @@ export default function BasketContainer({basket, clearItems, removeItem}) {
           <div key={item.id}>
             <p>{item.name}</p>
             <p>{item.price}</p>
+            <p></p>
             <button onClick={()=> removeItem(item.id)}>Remove Item</button>
           </div>
         ))
