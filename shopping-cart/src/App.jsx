@@ -7,9 +7,9 @@ import "./App.css";
 
 function App() {
   const products = [
-    { id: 1, name: "Product 1", qty: 1, price: 10 },
-    { id: 2, name: "Product 1", qty: 1, price: 20 },
-    { id: 3, name: "Product 1", qty: 1, price: 30 },
+    { id: 1, name: "Samsung", qty: 1, price: "£" + 1200 },
+    { id: 2, name: "Earbud", qty: 1, price: "£" + 200 },
+    { id: 3, name: "T-shit", qty: 1, price: "£" + 30 },
   ];
 
   // const [resourceType, setResourceType]= useState('user')
