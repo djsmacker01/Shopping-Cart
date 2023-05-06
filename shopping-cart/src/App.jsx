@@ -20,18 +20,31 @@ function App() {
     // setBasket((prevBasket) => [...prevBasket, item]);
     setBasket((prevBasket) => {
       const itemIdex = prevBasket.findIndex((i) => i.id === item.id);
-
       if (itemIdex !== -1) {
-        const newItem = [...prevBasket];
-        newItem[itemIdex] = {
-          ...newItem[itemIdex],
-          qty: newItem[itemIdex].qty + 1,
+        const newList = [...prevBasket];
+        newList[itemIdex] = {
+          ...newList[itemIdex],
+          qty: newList[itemIdex].qty + 1,
         };
-        return newItem;
-      } else {
-        return [...prevBasket, { ...item, qty: 1 }];
+        return newList;
       }
-    });
+      else {
+        return [...prevBasket, { ...item, qty: 1 }];
+      };
+    })
+    //   const itemIdex = prevBasket.findIndex((i) => i.id === item.id);
+
+    //   if (itemIdex !== -1) {
+    //     const newItem = [...prevBasket];
+    //     newItem[itemIdex] = {
+    //       ...newItem[itemIdex],
+    //       qty: newItem[itemIdex].qty + 1,
+    //     };
+    //     return newItem;
+    //   } else {
+    //     return [...prevBasket, { ...item, qty: 1 }];
+    //   }
+    // });
     // check if id already exists
 
     // get the existing record that matches the id
