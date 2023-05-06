@@ -44,6 +44,7 @@ function App() {
   const removeItem = (id) => { 
     // setBasket((prevBasket) => prevBasket.filter((item) => item.id !== id))
     setBasket((prevBasket) =>
+      // reduce method takes two arguments; accumulator and item
       prevBasket.reduce((acc, item) => {
         if (item.id === id) {
           if (item.qty > 1) {
