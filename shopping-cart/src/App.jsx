@@ -6,6 +6,7 @@ import BasketContainer from "./Components/BasketContainer";
 import "./App.css";
 
 function App() {
+
   const products = [
     { id: 1, name: "Samsung", qty: 1, price: "£" + 1200 },
     { id: 2, name: "Earbud", qty: 1, price: "£" + 200 },
@@ -15,6 +16,7 @@ function App() {
   // const [resourceType, setResourceType]= useState('user')
 
   const [Basket, setBasket] = useState([]);
+  const [total, setTotal]= useState(0)
 
   const addToBasket = (item) => {
     // setBasket((prevBasket) => [...prevBasket, item]);
@@ -70,6 +72,10 @@ function App() {
         return acc;
       }, [])
     );
+  }
+
+  const calculateTotal = () => {
+    
   }
 
 
